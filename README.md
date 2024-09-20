@@ -32,7 +32,7 @@ A previsão da estrutura secundária é uma etapa fundamental para entender a fo
 
 - `IA.py`: Script principal contendo a implementação do modelo de previsão de estrutura secundária de proteínas.
 - `training_secondary_structure_train.csv`: Arquivo de dados de treinamento e teste.
-- 
+  
 ## Resultados
 
 Após o treinamento, o modelo alcançou uma acurácia de **83.31%** no conjunto de validação. Este resultado demonstra a capacidade do modelo em prever corretamente a estrutura secundária de proteínas com base na sequência de aminoácidos, sendo um indicador promissor para futuras aplicações na área de biologia computacional.
