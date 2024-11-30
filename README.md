@@ -1,43 +1,44 @@
-# Projeto: Previsão da Estrutura Secundária de Proteínas Usando Redes Neurais
+# Project: Protein Secondary Structure Prediction Using Neural Networks
 
-Os dados utilizados: [Protein Secondary Structure Dataset - CASP12, CB513, TS115](https://www.kaggle.com/datasets/tamzidhasan/protein-secondary-structure-casp12-cb513-ts115?select=test_secondary_structure_casp12.csv).
-## Descrição
+Data Used: [Protein Secondary Structure Dataset - CASP12, CB513, TS115](https://www.kaggle.com/datasets/tamzidhasan/protein-secondary-structure-casp12-cb513-ts115?select=test_secondary_structure_casp12.csv)
 
-Este projeto tem como objetivo prever a estrutura secundária de proteínas (PSSP - *Protein Secondary Structure Prediction*) a partir de suas sequências de aminoácidos, utilizando técnicas de *Deep Learning*. A estrutura secundária das proteínas consiste em três elementos principais: hélices alfa (α-helix), folhas beta (β-sheet) e enrolamentos (*coils*). O modelo desenvolvido emprega redes neurais recorrentes, mais especificamente a arquitetura LSTM (*Long Short-Term Memory*), que é conhecida por lidar bem com sequências temporais e estruturadas, como as cadeias de aminoácidos.
+## Description
 
-A previsão da estrutura secundária é uma etapa fundamental para entender a forma tridimensional de uma proteína, que está diretamente ligada à sua função biológica. Este modelo tem como objetivo classificar cada aminoácido de uma proteína em uma das três estruturas secundárias mencionadas, acelerando assim o processo de análise de proteínas em larga escala e oferecendo insights valiosos para a biologia computacional e a descoberta de medicamentos.
+This project aims to predict the secondary structure of proteins (PSSP - *Protein Secondary Structure Prediction*) from their amino acid sequences using *Deep Learning* techniques. Protein secondary structures consist of three main elements: alpha helices (α-helix), beta sheets (β-sheet), and coils. The developed model employs recurrent neural networks, specifically the LSTM (*Long Short-Term Memory*) architecture, known for effectively handling sequential and structured data, such as amino acid chains.
 
-## Etapas do Projeto
+Predicting the secondary structure is a fundamental step in understanding the three-dimensional shape of a protein, which is directly linked to its biological function. This model aims to classify each amino acid in a protein into one of the three mentioned secondary structures, thus accelerating large-scale protein analysis and providing valuable insights for computational biology and drug discovery.
 
-1. **Importação das Bibliotecas**:
-    O projeto utiliza bibliotecas como Pandas e NumPy para manipulação de dados e TensorFlow e Scikit-learn para a criação e treinamento do modelo de redes neurais.
+## Project Steps
 
-2. **Pré-processamento dos Dados**:
-    - As sequências de aminoácidos são padronizadas para um comprimento fixo.
-    - Utiliza-se a técnica de *one-hot encoding* para representar as sequências de aminoácidos como vetores binários.
-    - As estruturas secundárias são convertidas em uma forma numérica para que possam ser utilizadas como rótulos de treinamento.
+1. **Library Imports**:  
+   The project utilizes libraries like Pandas and NumPy for data manipulation, and TensorFlow and Scikit-learn for creating and training the neural network model.
 
-3. **Construção do Modelo**:
-    - O modelo utiliza camadas LSTM, que são ideais para lidar com a dependência sequencial das entradas.
-    - A camada final do modelo aplica a função de ativação *softmax* para prever qual estrutura secundária corresponde a cada aminoácido da sequência.
+2. **Data Preprocessing**:  
+   - Amino acid sequences are standardized to a fixed length.  
+   - The *one-hot encoding* technique is used to represent amino acid sequences as binary vectors.  
+   - Secondary structures are converted into numeric formats to be used as training labels.  
 
-4. **Treinamento e Validação**:
-    - O conjunto de dados é dividido em treinamento e validação, permitindo avaliar o desempenho do modelo em dados não vistos durante o treinamento.
-    - O modelo é treinado usando a função de perda *sparse categorical crossentropy* e o otimizador Adam, que ajusta os pesos do modelo para minimizar o erro nas previsões.
+3. **Model Construction**:  
+   - The model employs LSTM layers, ideal for handling the sequential dependencies of the input data.  
+   - The final layer applies the *softmax* activation function to predict the secondary structure corresponding to each amino acid in the sequence.
 
-5. **Avaliação do Modelo**:
-    - Após o treinamento, o desempenho do modelo é avaliado usando a métrica de acurácia, que indica a porcentagem de previsões corretas feitas pelo modelo.
+4. **Training and Validation**:  
+   - The dataset is split into training and validation sets to evaluate the model’s performance on unseen data.  
+   - The model is trained using the *sparse categorical crossentropy* loss function and the Adam optimizer, which adjusts the model's weights to minimize prediction errors.  
 
-## Estrutura do Projeto
+5. **Model Evaluation**:  
+   - After training, the model's performance is assessed using the accuracy metric, which indicates the percentage of correct predictions.
 
-- `IA.py`: Script principal contendo a implementação do modelo de previsão de estrutura secundária de proteínas.
-- `training_secondary_structure_train.csv`: Arquivo de dados de treinamento e teste.
-  
-## Resultados
+## Project Structure
 
-Após o treinamento, o modelo alcançou uma acurácia de **83.31%** no conjunto de validação. Este resultado demonstra a capacidade do modelo em prever corretamente a estrutura secundária de proteínas com base na sequência de aminoácidos, sendo um indicador promissor para futuras aplicações na área de biologia computacional.
+- `IA.py`: Main script containing the implementation of the protein secondary structure prediction model.  
+- `training_secondary_structure_train.csv`: Dataset file for training and testing.
 
-## Aplicações Potenciais
+## Results
 
-- **Descoberta de Medicamentos**: A previsão da estrutura secundária de proteínas pode auxiliar na identificação de alvos proteicos para o desenvolvimento de novos medicamentos.
-- **Biologia Computacional**: Ferramentas automáticas de previsão de estruturas secundárias são fundamentais para análises em larga escala e fornecem insights sobre como as proteínas funcionam em nível molecular.
+After training, the model achieved an accuracy of **83.31%** on the validation set. This result demonstrates the model's ability to accurately predict protein secondary structures based on amino acid sequences, serving as a promising indicator for future applications in computational biology.
+
+## Potential Applications
+
+- **Drug Discovery**: Predicting the secondary structure of proteins can aid in identifying protein targets for the development of new drugs.  
+- **Computational Biology**: Automated secondary structure prediction tools are essential for large-scale analyses and provide insights into how proteins function at the molecular level.
